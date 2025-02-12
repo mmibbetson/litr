@@ -1,0 +1,103 @@
+# SPDX-FileCopyrightText: 2025 Matthew Mark Ibbetson
+# SPDX-FileContributor: Matthew Mark Ibbetson
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+[package]
+name = "litr-cli"
+version = "0.1.1"
+edition = "2021"
+rust-version = "1.80.0"
+authors = ["Matthew Mark Ibbetson <mmibbetson@gmail.com>"]
+description = "A simple, minimal, and flexible command line utility for managing plaintext files."
+keywords = ["cli", "utility", "file", "notes"]
+categories = ["command-line-utilities"]
+readme = "README.md"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/mmibbetson/litr"
+homepage = "https://mmibbetson.github.io/software/litr"
+
+[[bin]]
+name = "litr"
+path = "src/main.rs"
+doc = true
+
+[workspace]
+members = [".", "xtask"]
+
+[workspace.dependencies.clap]
+version = "4.5.20"
+features = ["derive", "wrap_help"]
+
+[workspace.package]
+edition = "2021"
+version = "0.1.1"
+
+[lib]
+name = "litr_lib"
+path = "src/lib.rs"
+doc = false
+
+[dependencies]
+anyhow = "1.0.92"                                      # MIT or Apache-2.0
+regex = "1.11.1"                                       # MIT or Apache-2.0
+serde = { version = "1.0.214", features = ["derive"] } # MIT or Apache-2.0
+toml = "0.8.19"                                        # MIT or Apache-2.0
+clap.workspace = true                                  # MIT or Apache-2.0
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+cargo = { level = "warn", priority = -1 }
+pedantic = { level = "deny", priority = -1 }
+restriction = { level = "allow", priority = -1 }
+allow_attributes_without_reason = "deny"
+create_dir = "deny"
+dbg_macro = "deny"
+empty_enum_variants_with_brackets = "deny"
+empty_structs_with_brackets = "deny"
+error_impl_error = "deny"
+filetype_is_file = "deny"
+format_push_string = "deny"
+if_then_some_else_none = "deny"
+impl_trait_in_params = "deny"
+indexing_slicing = "deny"
+infinite_loop = "deny"
+map_err_ignore = "deny"
+map_with_unused_argument_over_ranges = "deny"
+missing_assert_message = "warn"
+mixed_read_write_in_expression = "deny"
+mod_module_files = "deny"
+module_name_repetitions = "warn"
+needless_raw_strings = "deny"
+needless_update = "deny"
+panic = "warn"
+pathbuf_init_then_push = "deny"
+print_stderr = "warn"
+pub_without_shorthand = "deny"
+redundant_type_annotations = "deny"
+renamed_function_params = "deny"
+rest_pat_in_fully_bound_structs = "deny"
+same_name_method = "deny"
+semicolon_outside_block = "deny"
+shadow_same = "deny"
+str_to_string = "deny"
+string_add = "deny"
+string_to_string = "deny"
+tests_outside_test_module = "deny"
+todo = "deny"
+too_many_lines = "allow"
+try_err = "deny"
+undocumented_unsafe_blocks = "deny"
+unnecessary_self_imports = "deny"
+unneeded_field_pattern = "deny"
+unseparated_literal_suffix = "deny"
+unwrap_used = "deny"
+verbose_file_reads = "deny"

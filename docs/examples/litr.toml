@@ -1,0 +1,43 @@
+default_extension = "txt"
+directory = "~/Documents/notes"
+illegal_characters = [
+    '[',
+    ']',
+    '{',
+    '}',
+    '(',
+    ')',
+    '!',
+    '#',
+    '$',
+    '%',
+    '^',
+    '&',
+    '*',
+    '+',
+    '\',
+    '"',
+    "'",
+    '?',
+    ',',
+    '|',
+    ';',
+    ':',
+    '~',
+    '`',
+    '‘',
+    '’',
+    '“',
+    '”',
+    '/',
+    '*',
+    ' ',
+    '@',
+    '=',
+    '-',
+    '_',
+    '.',
+]
+regenerate_identifier = false
+segment_order = ["identifier", "signature", "title", "keywords", "extension"]
+# template_path = ""
