@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 [package]
-name = "litr-cli"
+name = "litr"
 version = "0.1.1"
 edition = "2021"
 rust-version = "1.80.0"

@@ -1,43 +1,35 @@
-default_extension = "txt"
-directory = "~/Documents/notes"
-illegal_characters = [
-    '[',
-    ']',
-    '{',
-    '}',
-    '(',
-    ')',
-    '!',
-    '#',
-    '$',
-    '%',
-    '^',
-    '&',
-    '*',
-    '+',
-    '\',
-    '"',
-    "'",
-    '?',
-    ',',
-    '|',
-    ';',
-    ':',
-    '~',
-    '`',
-    '‘',
-    '’',
-    '“',
-    '”',
-    '/',
-    '*',
-    ' ',
-    '@',
-    '=',
-    '-',
-    '_',
-    '.',
+tangle_commented_blocks = false
+trim_source_blanklines = true
+insert_target_blanklines = true
+
+[languages.dj]
+extensions = ["dj", "djot"]
+comment_block = { open = "{%", close = "%}" }
+code_block = [
+  { open = "```", close = "```" },
+  { open = "````", close = "````"},
+  { open = "`````", close = "`````"},
+  { open = "``````", close = "``````"},
 ]
-regenerate_identifier = false
-segment_order = ["identifier", "signature", "title", "keywords", "extension"]
-# template_path = ""
+
+[languages.md]
+extensions = ["md", "markdown"]
+comment_block = { open = "<!--", close = "-->" }
+code_block = [
+  { open = "```", close = "```" },
+  { open = "````", close = "````"},
+  { open = "`````", close = "`````"},
+  { open = "``````", close = "``````"},
+]
+
+[languages.typst]
+extensions = ["typst"]
+comment_line = "//"
+comment_block = { open = "/*", close = "/*" }
+code_block = { open = "```", close = "```" }
+
+[languages.org]
+extensions = ["org"]
+comment_line = "#"
+comment_block = { open = "#+begin_comment", close = "#+end_comment" }
+code_block = { open = "#+begin_src", close = "#+end_src" }
