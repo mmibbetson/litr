@@ -5,6 +5,8 @@
 
 //! CLI definition for litr.
 
+use std::path::PathBuf;
+
 use clap::{ArgAction, Parser};
 
 #[derive(Parser)]
@@ -14,38 +16,65 @@ use clap::{ArgAction, Parser};
     about = "A command to tangle source code blocks out of document files"
 )]
 pub struct Cli {
-    /// Print the input
+    /// foo
+    pub input: String,
+
     #[arg(
-        short = 'p',
-        long = "print",
+        short = 'd',
+        long = "output-directory",
+        action = ArgAction::Set)]
+    pub output_directory: Option<PathBuf>,
+
+    #[arg(
+        short = 't',
+        long = "tangle-commented",
         action = ArgAction::SetTrue)]
-    comment_block_open: Option<String>,
+    pub tangle_commented_blocks: bool,
+
+    #[arg(
+        short = 'b',
+        long = "trim-blanklines",
+        action = ArgAction::SetTrue)]
+    pub trim_source_blanklines: bool,
+
+    #[arg(
+        short = 'B',
+        long = "insert-blanklines",
+        action = ArgAction::Set)]
+    pub insert_target_blanklines: bool,
 
     /// Print the input
     #[arg(
-        short = 'p',
-        long = "print",
-        action = ArgAction::SetTrue)]
-    comment_block_close: Option<String>,
+        short = 's',
+        long = "comment-block-open",
+        action = ArgAction::Set)]
+    pub comment_block_start: Option<String>,
 
     /// Print the input
     #[arg(
-        short = 'p',
-        long = "print",
-        action = ArgAction::SetTrue)]
-    comment_line: Option<String>,
+        short = 'e',
+        long = "comment-block-close",
+        action = ArgAction::Set)]
+    pub comment_block_end: Option<String>,
 
     /// Print the input
     #[arg(
-        short = 'p',
-        long = "print",
-        action = ArgAction::SetTrue)]
-    code_block_open: Option<String>,
+        short = 'c',
+        long = "comment-line-indicator",
+        action = ArgAction::Set)]
+    pub comment_line_indicator: Option<String>,
 
     /// Print the input
     #[arg(
-        short = 'p',
-        long = "print",
-        action = ArgAction::SetTrue)]
-    code_block_close: Option<String>,
+        short = 'S',
+        long = "code-block-start",
+        action = ArgAction::Set)]
+    pub code_block_start: Option<String>,
+
+    /// Print the input
+    #[arg(
+        short = 'E',
+        long = "code-block-end",
+        action = ArgAction::Set)]
+    pub code_block_end: Option<String>,
 }
