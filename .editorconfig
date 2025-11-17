@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2024 Matthew Mark Ibbetson
+# SPDX-FileCopyrightText: 2025 Matthew Mark Ibbetson
 # SPDX-FileContributor: Matthew Mark Ibbetson
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
@@ -12,7 +12,7 @@ indent_style = space
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.{rs,toml,json}]
+[*.{zig,toml,json}]
 indent_size = 4
 
 [*.{typ,md,dj,org,txt,yaml}]

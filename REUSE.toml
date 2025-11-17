@@ -4,20 +4,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 version = 1
-SPDX-PackageName = "dn"
+SPDX-PackageName = "litr"
 SPDX-PackageSupplier = "Matthew Mark Ibbetson <mmibbetson@gmail.com>"
-
-[[annotations]]
-path = "Cargo.lock"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2025 Matthew Mark Ibbetson"
-SPDX-License-Identifier = "GPL-3.0-or-later"
-
-[[annotations]]
-path = "rust-toolchain.toml"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2025 Matthew Mark Ibbetson"
-SPDX-License-Identifier = "GPL-3.0-or-later"
 
 [[annotations]]
 path = ".gitattributes"
@@ -25,20 +13,8 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "2025 Matthew Mark Ibbetson"
 SPDX-License-Identifier = "GPL-3.0-or-later"
 
-[[annotations]]
-path = "docs/**"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2025 Matthew Mark Ibbetson"
-SPDX-License-Identifier = "GPL-3.0-or-later"
-
-[[annotations]]
-path = "man/**"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2025 Matthew Mark Ibbetson"
-SPDX-License-Identifier = "GPL-3.0-or-later"
-
-[[annotations]]
-path = "completions/**"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2025 Matthew Mark Ibbetson"
-SPDX-License-Identifier = "GPL-3.0-or-later"
+# [[annotations]]
+# path = "docs/**"
+# precedence = "aggregate"
+# SPDX-FileCopyrightText = "2025 Matthew Mark Ibbetson"
+# SPDX-License-Identifier = "GPL-3.0-or-later"
