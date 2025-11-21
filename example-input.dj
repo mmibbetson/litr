@@ -1,0 +1,21 @@
+# Title Here
+
+This is an example document that can be tangled. Here's the first code block:
+
+{% tangle hello.zig ``` 2 %}
+``` =zig
+pub fn main() !void {
+  std.debug.print("Hello, world!", .{});
+}
+```
+{% tangle end %}
+
+The block above will be output into the tangled source code *after* the next block.
+
+{% tangle hello.zig ``` 1 %}
+``` =zig
+const std = @import("std");
+```
+{% tangle end %}
+
+If two blocks are declared with the same position, `litr` should print an error explaining this conflict.
