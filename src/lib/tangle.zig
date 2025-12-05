@@ -1,36 +1,39 @@
 const std = @import("std");
+const AutoArrayHashmap = std.AutoArrayHashMap;
 
-const TangleConfig = struct {
-    // The token that indicates a comment line has begun. Enforce nothing prior?
-    // e.g. `<!--`, `#`, `//`, etc.
-    document_comment_token: []const u8,
-};
-
-const TangleBlock = struct {
+pub const TangleBlock = struct {
     // The name of the file that this block is to be written to
     output_file_name: []const u8,
+
     // The position of the block for tangling order. TODO: Should I use u32 instead?
     position: usize,
+
     // The actual string content of code to be tangled
     content: []const u8,
 };
 
-pub fn readInputFile(io: std.Io, allocator: std.mem.Allocator, inputFile: File) !void {
-    const file = try std.fs.cwd().openFile("output.txt", .{});
-    defer file.close();
-    const reader = file.readerStreaming(io, buffer: []u8);
-    reader.interface.readSliceAll(buffer: []u8)
+// Takes an input string and parses out an array of arrays of TangleBlocks. Each array
+// is a partition based on the `.output_file_name` field.
+pub fn parseTangleBlocks(allocator: std.mem.Allocator, input: []const u8) !?AutoArrayHashmap([]const u8, []TangleBlock) {
+    const out = AutoArrayHashmap([]const u8, []TangleBlock).init(allocator);
+    _ = input;
 
-    var buf: [1024]u8 = undefined;
-    while (try reader.readUntilDelimiterOrEof(buf[0..], '\n')) |line| {
-        std.log.info("{s}", .{line});
-    }
+    return out;
 }
 
-// Parses the demarcated tangle blocks from a source file into a slice of strings. Each string in the slice is a block
-// pub fn parseTangleBlocks(io: std.Io, allocator: std.mem.Allocator, input: std.fs.File, config: TangleConfig) !?[]TangleBlock {}
+// Takes a collection of TangleBlocks and concatenates & sequences them
+// pub fn formatTangleOutput([]TangleBlock) []const u8 {}
 
-// pub fn formatTangleOutput([]TangleBlock) {}
+// Does sorts a TangleBlock collection by `position`.
+// fn sortTangleBlocks() []TangleBlock {}
+
+test "can parse tangle block with output file" {}
+test "cannot parse tangle block without output file" {}
+test "can parse tangle block with position" {
+    // TODO: Confirm that it autoincrements position in the sequence
+    // that it reads blocks.
+}
+test "can parse tangle block without position" {}
 
 const test_input_djot =
     \\\# Title Here

@@ -1,5 +1,6 @@
 //! File containing executable orchestration of the tangle command.
 const std = @import("std");
+const tangle = @import("litr").tangle;
 
 // Runs the `tangle` subcommand.
 pub fn run(gpa: std.mem.Allocator, args: []const []const u8) !noreturn {
@@ -16,6 +17,10 @@ pub fn run(gpa: std.mem.Allocator, args: []const []const u8) !noreturn {
 
     std.process.exit(0);
 }
+
+const Command = struct {
+    fn parse(args: []const []const u8) Command {}
+};
 
 fn fatalHelp() noreturn {
     std.debug.print(
